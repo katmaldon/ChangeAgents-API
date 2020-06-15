@@ -1,0 +1,2 @@
+class UserResourcesController < ApplicationController
+end
