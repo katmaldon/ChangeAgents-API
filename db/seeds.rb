@@ -5,3 +5,88 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+Event.destroy_all
+Resource.destroy_all
+
+puts "Seeded"
+
+
+
+events = Event.create([{
+    title: "BLM Protest GAP",
+    location: "Grand Army Plaza",
+    image: "some image url",
+    zip: "11215",
+    date: "06/17/2020",
+    time: "3pm",
+    url: "blacklivesmatter.com",
+    info: "Protest organized by BLM"
+    },
+    {
+    title: "George Floyd Protest CH",
+    location: "Nostrand/Fulton",
+    image: "some image url",
+    zip: "11216",
+    date: "06/20/2020",
+    time: "5pm",
+    url: "blacklivesmatter.com",
+    info: "Speeches and information around BLM activism"
+    },
+    {
+    title: "Protest Barclay, Juneteenth Celebration",
+    location: "Barclays Center",
+    image: "some image url",
+    zip: "11217",
+    date: "06/19/2020",
+    time: "4pm",
+    url: "juneteenth.com",
+    info: "Protest and celebration"
+    }
+    ])
+
+    10.times do
+        User.create(
+            name: Faker::Name.name,
+            location: "Brooklyn",
+            zip: rand(11211..11218),
+            bio: Faker::Games::Fallout.quote
+        )
+    end
+
+    resources = Resource.create([{
+
+        title: "Open Your Lobby",
+        location: "Various locations Brooklyn",
+        image: "some image url",
+        zip: "all",
+        url: "https://www.6sqft.com/here-are-the-nyc-museums-and-theaters-opening-their-lobbies-to-help-protestors/",
+        info: "Businesses and institutions all over NYC offer comfort stations,
+        drinks, snacks, and phone charging to protesters"
+        },
+        {
+        title: "Know your rights",
+        location: "USA",
+        image: "some image url",
+        zip: "all",
+        url: "https://www.aclu.org/know-your-rights/protesters-rights/",
+        info: "The First Amendment protects your right to assemble and express
+        your views through protest. However, police and other government officials
+        are allowed to place certain narrow restrictions on the exercise of speech rights.
+        Make sure you’re prepared by brushing up on your rights before heading out
+        into the streets."
+        },
+        {
+        title: "What to bring to a protest",
+        location: "USA",
+        image: "some image url",
+        zip: "all",
+        url: "https://www.amnestyusa.org/pdfs/SafeyDuringProtest_F.pdf",
+        info: "Practical tips for which equipment to bring, which items to avoid,
+        and how to stay safe at protests"
+        },
+    ])
+
+
