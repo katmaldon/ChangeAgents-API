@@ -1,13 +1,30 @@
 class UserResourcesController < ApplicationController
 
-    before_action :find_user_resources, only: [:show, :destroy]
+    before_action :find_user_resource, only: [:show, :destroy]
 
     def index
         @user_resources = UserResource.all
+        render json: @user_resources
     end
 
     def show
+        render json: @user_resources
     end
+
+    def new
+        @user_resource = UserResource.create(event_params)
+        render json: @user_resources
+    end
+
+    def new
+        @user_resource = Event.new
+        render json: @user_resources
+    end
+
+    def destroy
+        render json: @user_resources
+    end
+
 
     private
 

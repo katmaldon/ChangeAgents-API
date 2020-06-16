@@ -4,9 +4,11 @@ class ResourcesController < ApplicationController
 
     def index
         @resources = Resource.all
+        render json: @resources
     end
 
     def show
+        render json: @resource
     end
 
     def create
@@ -18,14 +20,17 @@ class ResourcesController < ApplicationController
         #     flash[:errors] = resource.errors.full_messages
         #     redirect_to new_resource_path
         # end
+        render json: @resource
     end
 
     def new
         @resource = Resource.new
+        render json: @resource
     end
 
     def destroy
         @resource.destroy
+        render json: @resources
     end
 
     private

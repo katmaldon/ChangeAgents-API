@@ -4,9 +4,11 @@ class EventsController < ApplicationController
 
     def index
         @events = Event.all
+        render json: @events
     end
 
     def show
+        render json: @event
     end
 
     def create
@@ -18,14 +20,17 @@ class EventsController < ApplicationController
         #     flash[:errors] = event.errors.full_messages
         #     redirect_to new_event_path
         # end
+        render json: @event
     end
 
     def new
         @event = Event.new
+        render json: @event
     end
 
     def destroy
         @event.destroy
+        render json: @events
     end
 
     private

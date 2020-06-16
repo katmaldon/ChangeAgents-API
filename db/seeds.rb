@@ -13,48 +13,46 @@ Resource.destroy_all
 
 puts "Seeded"
 
-
-
-events = Event.create([{
-    title: "BLM Protest GAP",
-    location: "Grand Army Plaza",
-    image: "some image url",
-    zip: "11215",
-    date: "06/17/2020",
-    time: "3pm",
-    url: "blacklivesmatter.com",
-    info: "Protest organized by BLM"
-    },
-    {
-    title: "George Floyd Protest CH",
-    location: "Nostrand/Fulton",
-    image: "some image url",
-    zip: "11216",
-    date: "06/20/2020",
-    time: "5pm",
-    url: "blacklivesmatter.com",
-    info: "Speeches and information around BLM activism"
-    },
-    {
-    title: "Protest Barclay, Juneteenth Celebration",
-    location: "Barclays Center",
-    image: "some image url",
-    zip: "11217",
-    date: "06/19/2020",
-    time: "4pm",
-    url: "juneteenth.com",
-    info: "Protest and celebration"
-    }
+    events = Event.create([{
+        title: "BLM Protest GAP",
+        location: "Grand Army Plaza",
+        image: "some image url",
+        zip: "11215",
+        date: "06/17/2020",
+        time: "3pm",
+        url: "blacklivesmatter.com",
+        info: "Protest organized by BLM"
+        },
+        {
+        title: "George Floyd Protest CH",
+        location: "Nostrand/Fulton",
+        image: "some image url",
+        zip: "11216",
+        date: "06/20/2020",
+        time: "5pm",
+        url: "blacklivesmatter.com",
+        info: "Speeches and information around BLM activism"
+        },
+        {
+        title: "Protest Barclay, Juneteenth Celebration",
+        location: "Barclays Center",
+        image: "some image url",
+        zip: "11217",
+        date: "06/19/2020",
+        time: "4pm",
+        url: "juneteenth.com",
+        info: "Protest and celebration"
+        }
     ])
 
-    10.times do
-        User.create(
-            name: Faker::Name.name,
-            location: "Brooklyn",
-            zip: rand(11211..11218),
-            bio: Faker::Games::Fallout.quote
-        )
-    end
+    # 10.times do
+    #     User.create(
+    #         name: Faker::Name.name,
+    #         location: "Brooklyn",
+    #         zip: rand(11211..11218),
+    #         bio: Faker::Games::Fallout.quote
+    #     )
+    # end
 
     resources = Resource.create([{
 
@@ -63,8 +61,7 @@ events = Event.create([{
         image: "some image url",
         zip: "all",
         url: "https://www.6sqft.com/here-are-the-nyc-museums-and-theaters-opening-their-lobbies-to-help-protestors/",
-        info: "Businesses and institutions all over NYC offer comfort stations,
-        drinks, snacks, and phone charging to protesters"
+        info: "Businesses and institutions all over NYC offer comfort stations, drinks, snacks, and phone charging to protesters"
         },
         {
         title: "Know your rights",
@@ -72,11 +69,7 @@ events = Event.create([{
         image: "some image url",
         zip: "all",
         url: "https://www.aclu.org/know-your-rights/protesters-rights/",
-        info: "The First Amendment protects your right to assemble and express
-        your views through protest. However, police and other government officials
-        are allowed to place certain narrow restrictions on the exercise of speech rights.
-        Make sure you’re prepared by brushing up on your rights before heading out
-        into the streets."
+        info: "The First Amendment protects your right to assemble and express your views through protest."
         },
         {
         title: "What to bring to a protest",
@@ -84,9 +77,52 @@ events = Event.create([{
         image: "some image url",
         zip: "all",
         url: "https://www.amnestyusa.org/pdfs/SafeyDuringProtest_F.pdf",
-        info: "Practical tips for which equipment to bring, which items to avoid,
-        and how to stay safe at protests"
+        info: "Practical tips for which equipment to bring, which items to avoid, and how to stay safe at protests"
         },
+    ])
+
+    user_resources = UserResource.create([{
+        user_id: 1,
+        resource_id: 4
+        },
+        {
+        user_id: 2,
+        resource_id: 5
+        },
+        {
+        user_id: 2,
+        resource_id: 5
+        },
+        {
+        user_id: 3,
+        resource_id: 4
+        },
+        {
+        user_id: 3,
+        resource_id: 6
+        }
+    ])
+
+    user_events = UserEvent.create([{
+        user_id: 1,
+        event_id: 4
+        },
+        {
+        user_id: 2,
+        event_id: 4
+        },
+        {
+        user_id: 2,
+        event_id: 5
+        },
+        {
+        user_id: 3,
+        event_id: 6
+        },
+        {
+        user_id: 3,
+        event_id: 5
+        }
     ])
 
 

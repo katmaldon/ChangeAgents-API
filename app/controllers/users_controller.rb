@@ -4,9 +4,11 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
+        render json: @users
     end
 
     def show
+        render json: @user
     end
 
     def create
@@ -18,14 +20,17 @@ class UsersController < ApplicationController
         #     flash[:errors] = User.errors.full_messages
         #     redirect_to new_user_path
         # end
+        render json: @user
     end
 
     def new
         @user = User.new
+        render json: @user
     end
 
     def destroy
         @user.destroy
+        render json: @users
     end
 
     private
