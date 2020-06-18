@@ -45,14 +45,14 @@ puts "Seeded"
         }
     ])
 
-    # 10.times do
-    #     User.create(
-    #         name: Faker::Name.name,
-    #         location: "Brooklyn",
-    #         zip: rand(11211..11218),
-    #         bio: Faker::Games::Fallout.quote
-    #     )
-    # end
+    10.times do
+        User.create(
+            name: Faker::Name.name,
+            location: "Brooklyn",
+            zip: rand(11211..11218),
+            bio: Faker::Games::Fallout.quote
+        )
+    end
 
     resources = Resource.create([{
 
