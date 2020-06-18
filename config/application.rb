@@ -15,6 +15,7 @@ require "action_cable/engine"
 # require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -23,6 +24,17 @@ module ChangeAgents
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+
+    config.middleware.insert_before 0, Rack::Cors do
+        allow do
+          origins '*'
+          resource(
+            '*',
+            headers: :any,
+            methods: [:get, :patch, :put, :delete, :post, :options]
+            )
+        end
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -34,6 +46,6 @@ module ChangeAgents
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-  
+
   end
 end
